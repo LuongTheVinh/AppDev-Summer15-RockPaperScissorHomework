@@ -76,30 +76,30 @@
 
                     <tr>
                         <td>rock</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>1</td>
+                        <td><%= Move.where({ :user_move => 'rock'}).sum('user_wins') %></td>
+                        <td><%= Move.where({ :user_move => 'rock'}).sum('computer_wins') %></td>
+                        <td><%= Move.where({ :user_move => 'rock'}).sum('tie') %></td>
                     </tr>
 
                     <tr>
                         <td>paper</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td><%= Move.where({ :user_move => 'paper'}).sum('user_wins') %></td>
+                        <td><%= Move.where({ :user_move => 'paper'}).sum('computer_wins') %></td>
+                        <td><%= Move.where({ :user_move => 'paper'}).sum('tie') %></td>
                     </tr>
 
                     <tr>
                         <td>scissors</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>2</td>
+                        <td><%= Move.where({ :user_move => 'scissors'}).sum('user_wins') %></td>
+                        <td><%= Move.where({ :user_move => 'scissors'}).sum('computer_wins') %></td>
+                        <td><%= Move.where({ :user_move => 'scissors'}).sum('tie') %></td>
                     </tr>
 
                     <tr>
                         <th>Total</th>
-                        <th>4</th>
-                        <th>3</th>
-                        <th>4</th>
+                        <th><%= Move.sum('user_wins') %></th>
+                        <th><%= Move.sum('computer_wins') %></th>
+                        <th><%= Move.sum('tie') %></th>
                     </tr>
                 </table>
             </div>
