@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+<div class="container">
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/play/rock" class="btn btn-warning btn-block btn-lg">Play rock.</a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/play/paper" class="btn btn-warning btn-block btn-lg">Play paper.</a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/play/scissors" class="btn btn-warning btn-block btn-lg">Play scissors.</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">You played <%= @user_move %>.</h3>
+                        </div>
+                        <div class="panel-body">
+                            <img src="/assets/images/<%= @user_move %>.png" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">The computer played <%= @computer_move %>.</h3>
+                        </div>
+                        <div class="panel-body">
+                            <img src="/assets/images/<%= @computer_move %>.png" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well">
+                        <h1 class="text-center">You <%= @result %>!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Summary</h5>
+                </div>
+
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <th>When you played</th>
+                        <th>you won</th>
+                        <th>you lost</th>
+                        <th>you tied</th>
+                    </tr>
+
+                    <tr>
+                        <td>rock</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td>paper</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td>scissors</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <th>Total</th>
+                        <th>4</th>
+                        <th>3</th>
+                        <th>4</th>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h5 class="panel-title">
+                        Complete history
+                        (<%= Move.count %>)
+                    </h5>
+                </div>
+
+                <table class="table table-hover table-striped">
+
+                    <% Move.all.each do |move| %>
+
+                        <tr>
+                            <td><%= move.user_move %></td>
+                            <td><%= move.computer_move %></td>
+                            <td><%= move.user_wins %></td>
+                            <td><%= move.computer_wins %></td>
+                            <td><%= move.tie %></td>
+                        </tr>
+
+                    <% end %>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

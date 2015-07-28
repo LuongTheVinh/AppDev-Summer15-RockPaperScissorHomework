@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   get("/", { :controller => "game", :action => "home" })
 
   # Your code goes below.
+  get("/play/:the_move", { :controller => "game", :action => "play" })
 
 end
